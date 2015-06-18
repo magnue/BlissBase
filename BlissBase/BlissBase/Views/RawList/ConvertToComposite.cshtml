@@ -1,0 +1,202 @@
+﻿@using BlissBase.Model;
+
+@{
+    ViewBag.Title = Html.Localize("edit").ToString();
+    RawSymbolImport raw = ViewData["raw"] as RawSymbolImport;
+    IEnumerable<Symbol> symbols = ViewData["symbList"] as IEnumerable<Symbol>;
+    List<SymbolType> types = ViewData["types"] as List<SymbolType>;
+}
+@if (Session["logged_in"] == null)
+{
+    <div class="container body-content">
+        <h2>@Html.Localize("notLoggedInn")</h2>
+    </div>
+}
+else
+{
+<div class="container body-content">
+    <h2 class="page-header">@Html.Localize("edit")</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>@Html.Localize("symId")</th>
+                <td>@raw.rawId</td>
+            </tr>
+            <tr>
+                <th>@Html.Localize("symName")</th>
+                <td>@raw.rawName</td>
+            </tr>
+            <tr>
+                <th>@Html.Localize("symImg")</th>
+                @{
+                    var base64 = Convert.ToBase64String(raw.rawJpeg);
+                    var image = String.Format("data:image/png;base64,{0}", base64);
+                }
+                <td><img src="@image" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        <div>
+            <a class="btn btn-primary" href="@Url.Action("Index", "RawList")"><span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("back")</a>
+            <button type="submit" name="submit" class="btn btn-danger">
+                <span class="glyphicon glyphicon-ok"></span> @Html.Localize("save")
+            </button>
+        </div>
+
+        <div>
+            <h2 class="page-header">@Html.Localize("selectSym")</h2>
+            <ul class="tabs">
+                <li class="tab-link current" data-tab="tab-1">@Html.Localize("symbols")</li>
+                <li class="tab-link" data-tab="tab-2">@Html.Localize("indicators")</li>
+                <li class="tab-link" data-tab="tab-3">@Html.Localize("letters")</li>
+                <li class="tab-link" data-tab="tab-4">@Html.Localize("numbers")</li>
+            </ul>
+
+            <div id="tab-1" class="tab-content current">
+                <table class="table">
+                    <tbody>
+                        @if (symbols != null)
+                        {
+                            foreach (Symbol symbol in symbols)
+                            {
+                                if (types.Find(t => t.symId == symbol.symId) == null)
+                                {
+                                    <tr>
+                                        <td>@symbol.symId</td>
+                                        <td>@symbol.symName</td>
+                                        @{
+                                            var symbolBase64 = Convert.ToBase64String(symbol.symJpeg);
+                                            var symbolImage = String.Format("data:image/png;base64,{0}", symbolBase64);
+                                        }
+                                        <td><img src="@symbolImage" /></td>
+                                        <td>
+                                            <input type="checkbox" name="isPartOf" value="@symbol.symId" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tab-2" class="tab-content">
+                <table class="table">
+                    <tbody>
+                        @if (symbols != null)
+                        {
+                            foreach (Symbol symbol in symbols)
+                            {
+                                var temp = types.Find(t => t.symId == symbol.symId);
+                                if (temp != null && temp.typeIndicator.ToString() == "INDICATOR")
+                                {
+                                    <tr>
+                                        <td>@symbol.symId</td>
+                                        <td>@symbol.symName</td>
+                                        @{
+                                            var symbolBase64 = Convert.ToBase64String(symbol.symJpeg);
+                                            var symbolImage = String.Format("data:image/png;base64,{0}", symbolBase64);
+                                        }
+                                        <td><img src="@symbolImage" /></td>
+                                        <td>
+                                            <input type="checkbox" name="isPartOf" value="@symbol.symId" />
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="tab-3" class="tab-content">
+                <table class="table">
+                    <tbody>
+                        @if (symbols != null)
+                        {
+                            foreach (Symbol symbol in symbols)
+                            {
+                                var temp = types.Find(t => t.symId == symbol.symId);
+                                if (temp != null && temp.typeIndicator.ToString() == "LATIN")
+                                {
+                                    <tr>
+                                        <td>@symbol.symId</td>
+                                        <td>@symbol.symName</td>
+                                        @{
+                                            var symbolBase64 = Convert.ToBase64String(symbol.symJpeg);
+                                            var symbolImage = String.Format("data:image/png;base64,{0}", symbolBase64);
+                                        }
+                                        <td><img src="@symbolImage" /></td>
+                                        <td>
+                                            <input type="checkbox" name="isPartOf" value="@symbol.symId" />
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div id="tab-4" class="tab-content">
+                <table class="table">
+                    <tbody>
+                        @if (symbols != null)
+                        {
+                            foreach (Symbol symbol in symbols)
+                            {
+                                var temp = types.Find(t => t.symId == symbol.symId);
+                                if (temp != null && temp.typeIndicator.ToString() == "NUMERICAL")
+                                {
+                                    <tr>
+                                        <td>@symbol.symId</td>
+                                        <td>@symbol.symName</td>
+                                        @{
+                                            var symbolBase64 = Convert.ToBase64String(symbol.symJpeg);
+                                            var symbolImage = String.Format("data:image/png;base64,{0}", symbolBase64);
+                                        }
+                                        <td><img src="@symbolImage" /></td>
+                                        <td>
+                                            <input type="checkbox" name="isPartOf" value="@symbol.symId" />
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <input hidden name="rawId" value="@raw.rawId" />
+            <a class="btn btn-primary" href="@Url.Action("Index", "RawList")"><span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("back")</a>
+            <button type="submit" name="submit" class="btn btn-danger">
+                <span class="glyphicon glyphicon-ok"></span> @Html.Localize("save")
+            </button>
+        </div>
+    }
+
+</div>
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            $('ul.tabs li').click(function () {
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#" + tab_id).addClass('current');
+
+            })
+
+        })
+</script>
+}

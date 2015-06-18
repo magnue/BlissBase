@@ -1,0 +1,91 @@
+﻿@using BlissBase.Model;
+
+@{
+    ViewBag.Title = Html.Localize("symbols").ToString();
+    IEnumerable<Symbol> symb = ViewData["symb"] as IEnumerable<Symbol>;
+    List<SymbolType> types = ViewData["types"] as List<SymbolType>;
+}
+<div class="container body-content">
+    <div class="container-fluid">
+        <h2 class="page-header">@Html.Localize("symbols")</h2>
+
+        <div class="has-success">
+            <p class="control-label">
+                @ViewBag.Message
+            </p>
+        </div>
+        @if (Session["logged_in"] != null)
+        { 
+        <div>
+            <p>
+                <a class="btn btn-primary" href="@Url.Action("SymbolAdministration", "Index")"><span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("backToAdmin")</a>
+                <a class="btn btn-info" href="@Url.Action("Index", "RawList")"><span class="glyphicon glyphicon-list"></span> @Html.Localize("backToRaw")</a>
+            </p>
+        </div>
+        }
+        <table class="table table-striped">
+            <!--<tr>
+                <td>@Html.ActionLink("Back to Symbol Administration", "SymbolAdministration", "Index")</td>
+                <td>@Html.ActionLink("Back to Raw", "Index", "RawList")</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>-->
+            <tr>
+                <th>ID</th>
+                <th>@Html.Localize("symName")</th>
+                <th>@Html.Localize("symType")</th>
+                <th>@Html.Localize("symImg")</th>
+                <th></th>
+            </tr>
+            @if (symb != null)
+            {
+                foreach (Symbol symbol in symb)
+                {
+                    var temp = types.Find(t => t.symId == symbol.symId);
+                    var typeString = "";
+                    if (temp == null)
+                    {
+                        typeString = @Html.Localize("normSymbol").ToString();
+                    }
+                    else
+                    {
+                        var type = temp.typeIndicator;
+                        if (type == TypeCodes.INDICATOR)
+                        {
+                            typeString = @Html.Localize("indicator").ToString();
+                        }
+                        else if (type == TypeCodes.LATIN)
+                        {
+                            typeString = @Html.Localize("latLetter").ToString();
+                        }
+                        else
+                        {
+                            typeString = @Html.Localize("numeric").ToString();
+                        }
+                    }
+
+
+                    <tr>
+                        <td>@symbol.symId</td>
+                        <td>@symbol.symName</td>
+                        <td>@typeString</td>
+                        @{
+                    var base64 = Convert.ToBase64String(symbol.symJpeg);
+                    var image = String.Format("data:image/png;base64,{0}", base64);
+                        }
+                        <td><img src="@image" /></td>
+                        @if (Session["logged_in"] != null)
+                        {
+                        <td>
+                            @Html.ActionLink(Html.Localize("edit").ToString(), "Edit", new { id = symbol.symId }) |
+                            @Html.ActionLink(Html.Localize("delete").ToString(), "Delete", new { id = symbol.symId })
+                        </td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+        <div>@ViewBag.Message</div>
+    </div>
+</div>

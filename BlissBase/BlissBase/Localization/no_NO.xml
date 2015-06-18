@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+	<item id="lng">NO</item>
+	<item id="lngLNG">no_NO</item>
+	<item id="lngName">Norsk</item>
+	<item id="charset">UTF-8</item>
+	<item id="dir">ltr</item>
+	<item id="changelng">Språk</item>
+	<item id="changedlng">Språket har blitt byttet</item>
+
+  <item id="myAccount">Min konto</item>
+  <item id="logOut">Log ut</item>
+  <item id="logIn">Logg inn</item>
+  <item id="loggedInAs">Logget inn som:</item>
+  <item id="signUp">Lag konto</item>
+  <item id="home">Hjem</item>
+  <item id="write">Skriv</item>
+  <item id="rawSymbol">Ubehandlede symboler</item>
+  <item id="baseSymbol">Grunnsymbol</item>
+  <item id="compSymbol">Sammensatte symboler</item>
+  <item id="symAdmin">Symbol administrasjon</item>
+
+  <item id="welcome">Velkommen til BlissBase</item>
+  <item id="blissbase">BlissBase</item>
+
+  <item id="erd">En relasjonsdatabase for Bliss symboler</item>
+  <item id="quickNav">Rask navigasjon for BlissBase</item>
+
+  <item id="logOutLong">Log ut av BlissBase.</item>
+  <item id="logInLong">Log inn i BlissBase.</item>
+  <item id="signUpLong">Lag konto i BlissBase tjenesten.</item>
+  <item id="writeLong">Skriv med Bliss symboler.</item>
+  <item id="baseSymbolLong">Se listen over grunnsymboler.</item>
+  <item id="compSymbolLong">Se listen over samensatte symboler.</item>
+
+  <item id="symbols">Symboler</item>
+  <item id="indicators">Indikatorer</item>
+  <item id="letters">Bokstaver</item>
+  <item id="numbers">Tall</item>
+  <item id="space">Mellomrom</item>
+  <item id="backspace">Tilbake</item>
+
+  <item id="edit">Rediger</item>
+  <item id="symId">Symbol ID</item>
+  <item id="symName">Symbol navn</item>
+  <item id="symImg">Symbol bilde</item>
+  <item id="symType">Symbol type</item>
+  <item id="normSymbol">Normalt symbol</item>
+  <item id="indicator">Indikator</item>
+  <item id="latLetter">Latinske bokstaver</item>
+  <item id="numeric">Numerisk</item>
+  <item id="back">Tilbake</item>
+  <item id="save">Lagre</item>
+
+  <item id="backToAdmin">Tilbake til symbol administrasjon</item>
+  <item id="backToRaw">Tilbake til ubehandlede symboler</item>
+
+  <item id="rawSymbols">Ubehandlede symboler</item>
+  <item id="rawName">Ubehandlede navn</item>
+  <item id="rawImg">Ubehandlede bilder</item>
+  <item id="rawtoBase">Gjør om til grunnsymbol</item>
+  <item id="rawToComp">Gjør om til sammensatt symbol</item>
+  <item id="delete">Slett</item>
+
+  <item id="compSymbols">Sammensatte symboler</item>
+  <item id="compName">Sammensatte navn</item>
+  <item id="compImg">Sammensatte bilder</item>
+
+  <item id="selectSym">Velg symboler</item>
+
+  <item id="myPage">Min side</item>
+
+  <item id="userNameMsg">Ditt brukernavn.....</item>
+  <item id="userPasswdMsg">Ditt passord.....</item>
+  <item id="userName">Brukernavn:</item>
+  <item id="userPasswd">Passord:</item>
+
+  <item id="firstName">Fornavn:</item>
+  <item id="lastName">Etternavn:</item>
+  <item id="confirmPasswd">Bekreft passord:</item>
+  <item id="submitSignUp">Fullfør registrering</item>
+
+  <item id="upload">Last opp filer for database import</item>
+  <item id="uploadButton">Last opp Bilder av Bliss symboler</item>
+
+  <item id="baseId">Grunnsymbol ID'er</item>
+
+  <item id="error">Feil !</item>
+  <item id="success">Vellykket !</item>
+  <item id="notLoggedInn">Du må logge inn for å se denne siden</item>
+
+  <item id="errorLogIn">Kunne ikke logge inn. Venligst prøv igjenn.</item>
+  <item id="welcomeBack">Velkommen tilbake </item>
+  <item id="errorUserName">Brukernavnet er for tiden i bruk. Venligst velg et annet brukernavn.</item>
+  <item id="errorPasswd">Passordene er ikke like. Venligst prøv igjen.</item>
+  <item id="successSignUp">Grattulerer! Registreringen var vellykket. Brukernavnet ditt er: </item>
+  <item id="approval"> Kontoen din venter på godkjenning av administrator</item>
+
+  <item id="contact">Kontakt</item>
+  <item id="email">E-post:</item>
+  <item id="contactUs">Kontakt oss</item>
+  <item id="comment">Kommentarer:</item>
+  <item id="submitForm">Send</item>
+
+  <item id="cc2">BlissBase lisensiert under</item>
+  <item id="group">Utviklet av HIOA TDK gruppe</item>
+
+</lang>

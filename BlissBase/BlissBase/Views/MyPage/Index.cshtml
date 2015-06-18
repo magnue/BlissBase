@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = @Html.Localize("myPage");
+}
+
+<div class="container body-content">
+    <h2 class="page-header">@Html.Localize("myPage")</h2>
+
+    <h3>@ViewBag.Message</h3>
+
+    @if (Session["logged_in"] != null)
+    {
+        Html.ActionLink(Html.Localize("logOut").ToString(), "LogOut", "LogIn", null, new { @class = "btn btn-info" });
+    }
+</div>

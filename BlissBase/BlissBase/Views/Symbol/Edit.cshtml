@@ -1,0 +1,109 @@
+﻿@using BlissBase.Model;
+
+@{
+    ViewBag.Title = Html.Localize("edit").ToString();
+    Symbol symbol = ViewData["symbol"] as Symbol;
+    string noType = "false";
+    var type = new TypeCodes();
+    if(ViewData["type"] == null)
+    {
+        noType = "true";
+    }
+    else
+    {
+        type = (TypeCodes)ViewData["type"];
+    }
+}
+@if (Session["logged_in"] == null)
+{
+    <div class="container body-content">
+        <h2>@Html.Localize("notLoggedInn")</h2>
+    </div>
+}
+else
+{
+<div class="container body-content">
+    <h2 class="page-header">@Html.Localize("edit")</h2>
+
+    <table class="table table-responsive">
+        <tbody>
+            <tr>
+                <th>@Html.Localize("symId")</th>
+                <td>@symbol.symId</td>
+            </tr>
+            <tr>
+                <th>@Html.Localize("symName")</th>
+                <td>@symbol.symName</td>
+            </tr>
+            <tr>
+                <th>@Html.Localize("symImg")</th>
+                @{
+                    var base64 = Convert.ToBase64String(symbol.symJpeg);
+                    var image = String.Format("data:image/png;base64,{0}", base64);
+                }
+                <td><img src="@image" /></td>
+            </tr>
+
+            @using (Html.BeginForm())
+            {
+                if (symbol != null)
+                {
+                    <tr>
+                        <th>@Html.Localize("symType")</th>
+                        <td>
+                            <select id="selectType" name="symbolType" class="form-control">
+                                @if (noType == "true")
+                                {
+                                    <option selected id="normal" value="0">@Html.Localize("normSymbol")</option>
+                                }
+                                else
+                                {
+                                    <option id="normal" value="0">@Html.Localize("normSymbol")</option>
+                                }
+
+                                @if (type.ToString() == "INDICATOR")
+                                {
+                                    <option selected id="indicator" value="1">@Html.Localize("indicator")</option>
+                                }
+                                else
+                                {
+                                    <option id="indicator" value="1">@Html.Localize("indicator")</option>
+                                }
+
+                                @if (type.ToString() == "NUMERICAL")
+                                {
+                                    <option selected id="numerical" value="2">@Html.Localize("numeric")</option>
+                                }
+                                else
+                                {
+                                    <option id="numerical" value="2">@Html.Localize("numeric")</option>
+                                }
+
+                                @if (type.ToString() == "LATIN")
+                                {
+                                    <option selected id="latin" value="3">@Html.Localize("latLetter")</option>
+                                }
+                                else
+                                {
+                                    <option id="latin" value="3">@Html.Localize("latLetter")</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="symbolId" hidden value="@symbol.symId" />
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Symbol")">
+                                <span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("back")</a>
+                            <button type="submit" name="submit" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-ok"></span> @Html.Localize("save")
+                            </button>
+                        </td>
+                        <td></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+}

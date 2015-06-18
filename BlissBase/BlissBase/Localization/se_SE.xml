@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+	<item id="lng">SE</item>
+	<item id="lngLNG">se_SE</item>
+	<item id="lngName">Svenska</item>
+	<item id="charset">UTF-8</item>
+	<item id="dir">ltr</item>
+	<item id="changelng">Språk</item>
+	<item id="changedlng">Språket ändras</item>
+
+  <item id="welcome">Välkommen till BlissBase</item>
+  <item id="blissbase">BlissBase</item>
+
+  <item id="myAccount">Min konto</item>
+  <item id="logOut">logga ut</item>
+  <item id="logIn">Logga In</item>
+  <item id="loggedInAs">Loggad in som:</item>
+  <item id="signUp">Registrera dig</item>
+  <item id="home">Hem</item>
+  <item id="write">Skriva</item>
+  <item id="rawSymbol">Obehandlade symboler</item>
+  <item id="baseSymbol">Bas symbol</item>
+  <item id="compSymbol">Komposit symbol</item>
+  <item id="symAdmin">Symbol administration</item>
+
+  <item id="erd">En relationsdatabas för bliss symboler</item>
+  <item id="quickNav">Snabb navigering för BlissBase</item>
+
+  <item id="logOutLong">logga ut av BlissBase.</item>
+  <item id="logInLong">Logga In i BlissBase.</item>
+  <item id="signUpLong">Registrera dig i BlissBase tjänsten.</item>
+  <item id="writeLong">Skriva med Bliss symboler.</item>
+  <item id="baseSymbolLong">Se listen över bas symboler.</item>
+  <item id="compSymbolLong">Se listen över komposit symboler.</item>
+
+  <item id="symbols">Symboler</item>
+  <item id="indicators">Indikatorer</item>
+  <item id="letters">Bokstäver</item>
+  <item id="numbers">Siffror</item>
+  <item id="space">Utrymmen</item>
+  <item id="backspace">Tillbaka</item>
+
+  <item id="edit">Redigera</item>
+  <item id="symId">Symbol ID</item>
+  <item id="symName">Symbol namn</item>
+  <item id="symImg">Symbol bild</item>
+  <item id="symType">Symbol typ</item>
+  <item id="normSymbol">Normalt symbol</item>
+  <item id="indicator">Indikator</item>
+  <item id="latLetter">Latinska bokstäver</item>
+  <item id="numeric">Numeriskt</item>
+  <item id="back">Tilbaka</item>
+  <item id="save">Spara</item>
+
+  <item id="backToAdmin">Tillbaka till symbol administration</item>
+  <item id="backToRaw">Tillbaka till bas symbol</item>
+
+  <item id="rawSymbols">Obehandlade symboler</item>
+  <item id="rawName">Obehandlad namn</item>
+  <item id="rawImg">Obehandlad bild</item>
+  <item id="rawtoBase">Gör om till bas symbol</item>
+  <item id="rawToComp">Gör om till komposit symbol</item>
+  <item id="delete">Ta bort</item>
+
+  <item id="compSymbols">Komposit symbol</item>
+  <item id="compName">Komposit namn</item>
+  <item id="compImg">Komposit bild</item>
+
+  <item id="selectSym">Välj symboler</item>
+
+  <item id="myPage">Min sida</item>
+
+  <item id="userNameMsg">Ditt användarnamn.....</item>
+  <item id="userPasswdMsg">Ditt lösenord.....</item>
+  <item id="userName">Användarnamn:</item>
+  <item id="userPasswd">Lösenord:</item>
+
+  <item id="firstName">Förnamn:</item>
+  <item id="lastName">Efternamn:</item>
+  <item id="confirmPasswd">Bekräfta lösenord:</item>
+  <item id="submitSignUp">Fullfør registrering</item>
+
+  <item id="upload">Ladda upp filer för databas import</item>
+  <item id="uploadButton">Ladda upp bilder av</item>
+
+  <item id="baseId">Bas Symbol ID'er</item>
+
+  <item id="error">Fel !</item>
+  <item id="success">Framsteg !</item>
+  <item id="notLoggedInn">Du måste logga in för att se denna sida</item>
+
+  <item id="errorLogIn">Det gick inte att logga in. Var god försök igen.</item>
+  <item id="welcomeBack">Välkommen tillbaka </item>
+  <item id="errorUserName">Användarnamnet är i detta ögon blick vid användning. Vänligen välj en annan användarnamn.</item>
+  <item id="errorPasswd">Lösenorden är inte lika. Var god försöka igen.</item>
+  <item id="successSignUp">Grattis! Registreringen lyckades. Ditt användarnamn är: </item>
+  <item id="approval"> Ditt konto väntar på godkännande av administratören</item>
+
+  <item id="contact">Kontakt</item>
+  <item id="email">E-post:</item>
+  <item id="contactUs">Kontakta oss!</item>
+  <item id="comment">Kommentarer:</item>
+  <item id="submitForm">Skicka</item>
+
+  <item id="cc2">BlissBase licensierad enligt</item>
+  <item id="group">Utvecklad av HIOA TDK grupp</item>
+  
+</lang>

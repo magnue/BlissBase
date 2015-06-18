@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lang>
+	<item id="lng">EN</item>
+	<item id="lngLNG">en_US</item>
+	<item id="lngName">English</item>
+	<item id="charset">UTF-8</item>
+	<item id="dir">ltr</item>
+	
+  <item id="changelng">Language</item>
+	<item id="changedlng">Language has been changed</item>
+
+  <item id="myAccount">My account</item>
+  <item id="logOut">Log out</item>
+  <item id="logIn">Log in</item>
+  <item id="signUp">Sign up</item>
+  <item id="home">Home</item>
+  <item id="write">Write</item>
+  <item id="rawSymbol">Raw symbols</item>
+  <item id="baseSymbol">Base symbols</item>
+  <item id="compSymbol">Composite symbols</item>
+  <item id="symAdmin">Symbol administration</item>
+
+  <item id="welcome">Welcome to BlissBase</item>
+  <item id="blissbase">BlissBase</item>
+
+  <item id="erd">A relational database for bliss symbols</item>
+  <item id="quickNav">Quick navigation BlissBase</item>
+
+  <item id="logOutLong">Log out of BlissBase.</item>
+  <item id="logInLong">Log in to BlissBase.</item>
+  <item id="loggedInAs">Logged in as:</item>
+  <item id="signUpLong">Sign up to the BlissBase service.</item>
+  <item id="writeLong">Write with Bliss symbols.</item>
+  <item id="baseSymbolLong">Browse the list of base symbols.</item>
+  <item id="compSymbolLong">Browse the List of composite symbols.</item>
+
+  <item id="symbols">Symbols</item>
+  <item id="indicators">Indicators</item>
+  <item id="letters">Letters</item>
+  <item id="numbers">Numbers</item>
+  <item id="space">Space</item>
+  <item id="backspace">Backspace</item>
+
+  <item id="edit">Edit</item>
+  <item id="symId">Symbol ID</item>
+  <item id="symName">Symbol name</item>
+  <item id="symImg">Symbol image</item>
+  <item id="symType">Symbol type</item>
+  <item id="normSymbol">Normal symbol</item>
+  <item id="indicator">Indicator</item>
+  <item id="latLetter">Latin letters</item>
+  <item id="numeric">Numerical</item>
+  <item id="back">Back</item>
+  <item id="save">Save</item>
+
+  <item id="backToAdmin">Back to symbol administration</item>
+  <item id="backToRaw">Back to raw symbol</item>
+
+  <item id="rawSymbols">Raw symbols</item>
+  <item id="rawName">Raw name</item>
+  <item id="rawImg">Raw image</item>
+  <item id="rawtoBase">Convert to base symbol</item>
+  <item id="rawToComp">Convert to composite symbol</item>
+  <item id="delete">Delete</item>
+
+  <item id="compSymbols">Composite symbols</item>
+  <item id="compName">Composite name</item>
+  <item id="compImg">Composite image</item>
+
+  <item id="selectSym">Select symbols</item>
+
+  <item id="myPage">My page</item>
+
+  <item id="userNameMsg">Your username.....</item>
+  <item id="userPasswdMsg">Your password.....</item>
+  <item id="userName">Username:</item>
+  <item id="userPasswd">Password:</item>
+
+  <item id="firstName">First name:</item>
+  <item id="lastName">Last name:</item>
+  <item id="confirmPasswd">Confirm password:</item>
+  <item id="submitSignUp">Complete registration</item>
+
+  <item id="upload">Upload files for database import</item>
+  <item id="uploadButton">Upload Images of Bliss symbols</item>
+
+  <item id="baseId">Base Symbol ID's</item>
+
+  <item id="error">Error !</item>
+  <item id="success">Success !</item>
+  <item id="notLoggedInn">You have to logg inn to view this page</item>
+
+  <item id="errorLogIn">Could not log in. Please try again.</item>
+  <item id="welcomeBack">Welcome Back </item>
+  <item id="errorUserName">The username is currently in use. Please choose another username.</item>
+  <item id="errorPasswd">The two passwords are not identical. Please try again.</item>
+  <item id="successSignUp">Congratulations! You have successfully registred. Your username is: </item>
+  <item id="approval"> Your account is awaiting administrator approval</item>
+  
+  <item id="contact">Contact</item>
+  <item id="email">E-mail:</item>
+  <item id="contactUs">Contact us</item>
+  <item id="comment">Comments:</item>
+  <item id="submitForm">Submit</item>
+  
+  <item id="cc2">BlissBase licenced under</item>
+  <item id="group">Developed by HIOA TDK group</item>
+
+</lang>

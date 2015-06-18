@@ -1,0 +1,74 @@
+﻿@using BlissBase.Model;
+
+@{
+    ViewBag.Title = Html.Localize("rawSymbols").ToString();
+    IEnumerable<RawSymbolImport> raw = ViewData["raw"] as IEnumerable<RawSymbolImport>;
+}
+@if (Session["logged_in"] == null)
+{
+    <h2>You have to logg inn to view this page</h2>
+}
+else
+{
+<div class="container body-content">
+    <div class="container-fluid">
+        <h2 class="page-header">@Html.Localize("rawSymbols")</h2>
+
+        <div class="has-success">
+            <p class="control-label">@ViewBag.Message</p>
+        </div>
+        <div>
+            <p>
+                <a class="btn btn-primary" href="@Url.Action("SymbolAdministration", "Index")"><span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("backToAdmin")</a>
+            </p>
+        </div>
+        <table class="table table-striped">
+            <!--<tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>-->
+            <tr>
+                <th>ID</th>
+                <th>@Html.Localize("rawName")</th>
+                <th>@Html.Localize("rawImg")</th>
+                <th></th>
+                <th></th>
+            </tr>
+            @if (raw != null)
+            {
+                @*using (Html.BeginForm("AddAsBaseSymbol", "RawList", FormMethod.Post))
+                    {*@
+                foreach (RawSymbolImport symbol in raw)
+                {
+                    <tr>
+                        <td>@symbol.rawId</td>
+                        <td>@symbol.rawName</td>
+                        @{
+                    var base64 = Convert.ToBase64String(symbol.rawJpeg);
+                    var image = String.Format("data:image/png;base64,{0}", base64);
+                        }
+                        <td><img src="@image" /></td>
+                        <!--<td><input type="checkbox" name="checkbox" value="@symbol.rawId" /></td>-->
+                        <td>@Html.ActionLink( Html.Localize("rawToBase").ToString(), "AddAsBaseSymbol", new { id = symbol.rawId })</td>
+                        <td>
+                            @Html.ActionLink(Html.Localize("rawToComp").ToString(), "ConvertToComposite", new { id = symbol.rawId }) |
+                            @Html.ActionLink(Html.Localize("delete").ToString(), "Delete", new { id = symbol.rawId })
+                        </td>
+                    </tr>
+                }
+                <!--<tr>
+                    <td>
+                        <input type="submit" value="Save Base Symbols" title="View" />
+                    </td>
+                </tr>-->
+                @*}*@
+            }
+        </table>
+        <div>@ViewBag.Message</div>
+        <!--<a class="btn btn-success" href="#">See Base Symbols</a>-->
+    </div>
+</div>
+}

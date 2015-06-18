@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = @Html.Localize("signUp").ToString();
+}
+
+<div class="container body-content">
+    <h2>@Html.Localize("signUp")</h2>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <label>@Html.Localize("firstName") </label>
+            <input class="form-control" type="text" name="firstname" />
+
+            <label>@Html.Localize("lastName") </label>
+            <input class="form-control" type="text" name="lastname" />
+
+            <label>@Html.Localize("userName") </label>
+            <input class="form-control" type="text" name="username" />
+
+            <label>@Html.Localize("userPasswd")</label>
+            <input class="form-control" type="password" name="password" />
+
+            <label>@Html.Localize("confirmPasswd") </label>
+            <input class="form-control" type="password" name="confirm_password" />
+
+    <input class="btn btn-danger" type="submit" name="submit" value="@Html.Localize("submitSignUp").ToString()" />
+        }
+    </div>
+</div>

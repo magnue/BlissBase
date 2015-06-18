@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = @Html.Localize("blissbase").ToString();
+    Layout = "~/Views/Shared/_BeforeLogIn.cshtml";
+    @Html.Action("DefaultLocale", "Locales");
+}

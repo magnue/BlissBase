@@ -1,0 +1,58 @@
+﻿@using BlissBase.Model;
+@{
+    ViewBag.Title = Html.Localize("compSymbol").ToString();
+    IEnumerable<CompositeSymbol> comp = ViewData["comp"] as IEnumerable<CompositeSymbol>;
+}
+<div class="container body-content">
+    <div class="container-fluid">
+        <h2 class="page-header">@Html.Localize("compSymbol")</h2>
+        <div class="has-success">
+            <p class="control-label">@ViewBag.Message</p>
+        </div>
+        @if (Session["logged_in"] != null)
+        {
+        <div>
+            <p>
+                <a class="btn btn-primary" href="@Url.Action("SymbolAdministration", "Index")"><span class="glyphicon glyphicon-arrow-left"></span> @Html.Localize("backToAdmin")</a>
+                <a class="btn btn-info" href="@Url.Action("Index", "RawList")"><span class="glyphicon glyphicon-list"></span> @Html.Localize("backToRaw")</a>
+            </p>
+        </div>
+        }
+        <table class="table table-striped">
+            <tbody>
+                <!--<tr>
+                    <td>@Html.ActionLink("Back to Symbol Administration", "SymbolAdministration", "Index")</td>
+                    <td>@Html.ActionLink("Back to Raw", "Index", "RawList")</td>
+                </tr>-->
+                <tr>
+                    <th>ID</th>
+                    <th>@Html.Localize("compName")</th>
+                    <th>@Html.Localize("compImg")</th>
+                    <th></th>
+                </tr>
+                @if (comp != null)
+                {
+                    foreach (CompositeSymbol symbol in comp)
+                    {
+                        <tr>
+                            <td>@symbol.compId</td>
+                            <td>@symbol.compName</td>
+                            @{
+                        var base64 = Convert.ToBase64String(symbol.compJpeg);
+                        var image = String.Format("data:image/png;base64,{0}", base64);
+                            }
+                            <td><img src="@image" /></td>
+                            @if (Session["logged_in"] != null)
+                            {
+                            <td>
+                                @Html.ActionLink(Html.Localize("edit").ToString(), "Edit", new { id = @symbol.compId }) |
+                                @Html.ActionLink(Html.Localize("delete").ToString(), "Delete", new { id = @symbol.compId })
+                            </td>
+                            }
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

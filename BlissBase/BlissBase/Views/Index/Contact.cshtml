@@ -1,0 +1,38 @@
+﻿@model BlissBase.Models.ContactModels
+@{
+    ViewBag.Title = @Html.Localize("contact").ToString();
+   
+}
+<body>
+    <div class="container body-content">
+        <h1 style="padding-top:20px;">@Html.Localize("contactUs")</h1>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="row">
+                @Html.LabelFor(model => model.FirstName, @Html.Localize("firstName").ToString())
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.LastName, @Html.Localize("lastName").ToString())
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.Email, @Html.Localize("email").ToString())
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="row">
+                @Html.LabelFor(model => model.Comment, @Html.Localize("comment").ToString())
+                @Html.TextAreaFor(model => model.Comment)
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+            <div class="row">
+                <input type="submit" value="@Html.Localize("submitForm").ToString()" id="button" />
+                <input type="reset" value="reset" id="button" />
+            </div>
+        }
+    </div>
+</body>

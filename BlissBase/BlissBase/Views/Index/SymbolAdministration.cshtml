@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = Html.Localize("symAdmin").ToString();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["logged_in"] == null)
+{
+    <div class="container body-content">
+        <h2>@Html.Localize("notLoggedInn")</h2>
+    </div>
+}
+else
+{
+<div class="container body-content">
+    <div class="container">
+        <h2 class="page-header">@Html.Localize("symAdmin")</h2>
+        @using (Html.BeginForm("SymbolAdministration", "Index", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form" }))
+        {
+            <h3>@Html.Localize("upload")</h3>
+            <input class="btn btn-default" type="file" name="files" value="" multiple="multiple" />
+    <input class="btn btn-default" type="submit" value="@Html.Localize("uploadButton").ToString()" title="Upload" />
+        }
+        <div>@ViewBag.Message</div>
+
+        <br />
+        <br />
+
+    </div>
+    <div class="container">
+        @Html.ActionLink(Html.Localize("rawSymbol").ToString(), "Index", "RawList", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink(Html.Localize("baseSymbol").ToString(), "Index", "Symbol", null, new { @class = "btn btn-success" })
+        @Html.ActionLink(Html.Localize("compSymbols").ToString(), "Index", "CompositeSymbol", null, new { @class = "btn btn-danger" })
+    </div>
+</div>
+}

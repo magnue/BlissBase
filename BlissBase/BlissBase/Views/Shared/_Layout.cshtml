@@ -1,0 +1,116 @@
+﻿@using BlissBase.Model;
+@Html.Action("DefaultLocale", "Locales")
+<!DOCTYPE html>
+<html class="global" lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="user-scalable=yes,width=device-width,initial-scale=1">
+    <meta name="viewport" content="initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!--[if lte IE 8]><script src="~/css/ie/html5shiv.js"></script><![endif]-->
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/buttons.css" rel="stylesheet" />
+    <link href="~/Content/bootglyphs.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/tables.css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.intellisense.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.scrolly.min.js"></script>
+    <script src="~/Scripts/jquery.dropotron.min.js"></script>
+    <script src="~/Scripts/jquery.scrollex.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <script src="~/Scripts/skel-layers.min.js"></script>
+    <script src="~/Scripts/init.js"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/img.js")"></script>
+    <script src="@Url.Content("~/Scripts/img_small.js")"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <h1 id="logo">
+            <a href="/Index">BlissBase</a>
+            @if (Session["logged_in"] != null)
+            {
+                var user = Session["logged_in"] as BlissBase.Model.User;
+                <span> | @Html.Localize("loggedInAs") <a href="/MyPage">@user.userFirstName</a></span>
+            }
+        </h1>
+
+        <nav id="nav">
+            <ul>
+                <li class="nowhitespace"><a href="/Index">@Html.Localize("home")</a></li>
+                <li class="nowhitespace"><a href="/Write">@Html.Localize("write")</a></li>
+                @if (Session["logged_in"] != null)
+                {
+                    <li class="opener withOpacity">
+                        <a href="/Index/SymbolAdministration">@Html.Localize("symAdmin")</a>
+
+                        <ul class="ulizer">
+                            <li class="nowhitespace"><a href="/RawList" class="simpleBlock">@Html.Localize("rawSymbol")</a></li>
+                            <li class="nowhitespace"><a href="/Symbol" class="simpleBlock">@Html.Localize("baseSymbol")</a></li>
+                            <li class="nowhitespace"><a href="/CompositeSymbol" class="simpleBlock">@Html.Localize("compSymbol")</a></li>
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li class="nowhitespace"><a href="/Symbol" class="simpleBlock">@Html.Localize("baseSymbol")</a></li>
+                    <li class="nowhitespace"><a href="/CompositeSymbol" class="simpleBlock">@Html.Localize("compSymbol")</a></li>
+                }
+
+                @if (Session["logged_in"] != null)
+                {
+                    <li class="nowhitespace"><a href="/LogIn/LogOut">@Html.Localize("logOut")</a></li>
+                }
+                else
+                {
+                    <li class="nowhitespace"><a href="/LogIn">@Html.Localize("logIn")</a></li>
+                    <li class="nowhitespace"><a href="/LogIn/Subscribe" class="button special">@Html.Localize("signUp")</a></li>
+                }
+                <li class="dropdown">
+                    <a href="">@Html.Localize("changelng") <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li id="m">@Html.ActionLinkLocalization("English", "NewLocale", "Locales", new { lang = "en_US" })</li>
+                        <li id="m">@Html.ActionLinkLocalization("Norsk", "NewLocale", "Locales", new { lang = "no_NO" })</li>
+                        <li id="m">@Html.ActionLinkLocalization("Svensk", "NewLocale", "Locales", new { lang = "se_SE" })</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <!-- Main -->
+    <div id="main">
+        @RenderBody()
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon alt fa-envelope"><span class="label">@Html.Localize("email")</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>
+                <a href="http://creativecommons.org/licenses/by-sa/4.0/">@Html.Localize("cc2") (CC BY-SA 4.0)</a>
+            </li>
+            <li>
+                <a href="http://student.cs.hioa.no/hovedprosjekter/data/2015/15/">@Html.Localize("group") 15 - 2015</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

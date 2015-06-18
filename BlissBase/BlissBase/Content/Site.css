@@ -1,0 +1,206 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-height: 783px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.temp{
+    border-bottom:1px solid red;
+}
+
+.space{
+    width:20px;
+}
+
+.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.tabs li{
+	background: none;
+	color: #222;
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.tabs li.current{
+	background: #ededed;
+	color: #222;
+}
+
+.tab-content{
+	display: none;
+	background: #ededed;
+	padding: 15px;
+    height:380px;
+    overflow-y:auto;
+}
+
+.tab-content.current{
+	display: inherit;
+}
+
+
+.tabs li.myspace{
+    background-color:#0094ff;
+    margin-right:0px;
+    color:white;
+}
+
+.tabs li.backspace{
+    background-color:orangered;
+    margin-left:0px;
+    color:white;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
+}
+
+.jumbotron h1 {
+  line-height: 1;
+  color: inherit;
+}
+
+.jumbotron p {
+  line-height: 1.4;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron h1 {
+    font-size: 63px;
+  }
+}
+
+div.left-content { 
+    margin-right: 10px; 
+    width: 70%; 
+    float: left; 
+    border-right:1px dashed rgba(39, 39, 39, 0.40); 
+}
+
+div.div1 { 
+    height: 250px; 
+    width:100%; 
+    overflow-y:auto;
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+}
+
+.div1noback{
+     background-color:white;
+}
+
+div.div2 { 
+    height: auto; 
+    margin-top: 20px; 
+}
+
+div.div3 { 
+    width:29%; 
+    height: 600px; 
+}
+
+div.div3 ul, div.div3 ul li{
+    margin:0;
+    padding:0;
+}
+
+div.div3 ul li{
+    display: block;
+}
+
+.suggestions-scroll{
+    background-color:white;
+    border-radius:1px;
+    overflow-y:auto;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;;
+}
+
+table {
+	margin: 0 0 2em 0;
+	width: 100%;
+    border-color: #000000;
+}
+    
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: rgba(23, 23, 23, 0.2);
+}
+
+.form-control{
+    border: 1px solid black;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #000000;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+table th{
+    font-weight:bold;
+}
+
+td{
+    font-weight:normal;
+}
+
+

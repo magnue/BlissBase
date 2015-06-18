@@ -1,0 +1,465 @@
+﻿@using BlissBase.Model;
+
+@{
+    ViewBag.Title = Html.Localize("write").ToString();
+    List<Symbol> symbols = ViewData["symbols"] as List<Symbol>;
+    List<SymbolType> types = ViewData["types"] as List<SymbolType>;
+    List<CompositeSymbol> comp = ViewData["comp"] as List<CompositeSymbol>;
+    List<CompositeOf> compOf = ViewData["compOf"] as List<CompositeOf>;
+}
+
+<div class="container body-content">
+    <div class="container-fluid">
+        <div>@ViewBag.Message</div>
+        <h2 class="page-header"></h2>
+        <div class="left-content">
+            <div id="div1" class="div1">
+                <div id="written" class="jumbotron div1noback">
+                    <ul id="sentence" class="list-inline"></ul>
+                </div>
+            </div>
+            <div class="div2">
+                <ul class="tabs">
+                    <li class="tab-link current" data-tab="tab-1">@Html.Localize("symbols")</li>
+                    <li class="tab-link" data-tab="tab-2">@Html.Localize("indicators")</li>
+                    <li class="tab-link" data-tab="tab-3">@Html.Localize("letters")</li>
+                    <li class="tab-link" data-tab="tab-4">@Html.Localize("numbers")</li>
+                    <li class="myspace" data-tab="space">_ @Html.Localize("space")</li>
+                    <li class="backspace" data-tab="backspace">&lt;- @Html.Localize("backspace")</li>
+                </ul>
+
+                <div id="tab-1" class="tab-content current">
+                    <!--Symbols-->
+                    <table class="">
+                        <tbody>
+                            <tr>
+                                @if (symbols != null)
+                                {
+                                    var breakAt = 10;
+                                    var htmlString = "";
+                                    foreach (Symbol symb in symbols)
+                                    {
+                                        if (types.Find(t => t.symId == symb.symId) == null)
+                                        {
+                                            var base64 = Convert.ToBase64String(symb.symJpeg);
+                                            var image = String.Format("data:image/png;base64,{0}", base64);
+
+                                            if ((breakAt % 10) == 0)
+                                            {
+                                                htmlString += "</tr><tr>";
+                                            }
+                                            htmlString += "<td><div class='symbolWrap'><button class=\"btn btn-success btn-uniform\" " +
+                                                "onclick=\"printSymbol(" + symb.symId + ",'" + symb.symName + "','" + image + "', true)\">" +
+                                                "<img src='" + image + " 'alt='" + symb.symName + "' /> <div class='symbolName'>'" + symb.symName + 
+                                                "' </div></button></div></td>";
+                                            breakAt++;
+                                        }
+                                    }
+                                    //htmlString += "<td><button class=\"btn btn-success\" onclick=\"printSymbol(0, 'space', true)\">SPACE</button></td>";
+                                    //htmlString += "<td><button class=\"btn btn-danger\" onclick=\"printSymbol(0, 'backspace', true)\">DELETE</button></td>";
+                                    @Html.Raw(htmlString);
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tab-2" class="tab-content">
+                    <!--INDICATORS-->
+                    <table>
+                        <tbody>
+                            <tr>
+                                @if (symbols != null)
+                                {
+                                    var breakAt = 10;
+                                    var htmlString = "";
+                                    foreach (SymbolType type in types)
+                                    {
+                                        Symbol symb;
+                                        if (type.typeIndicator == TypeCodes.INDICATOR)
+                                        {
+                                            symb = symbols.Find(s => s.symId == type.symId);
+
+                                            var base64 = Convert.ToBase64String(symb.symJpeg);
+                                            var image = String.Format("data:image/png;base64,{0}", base64);
+
+                                            if ((breakAt % 10) == 0)
+                                            {
+                                                htmlString += "</tr><tr>";
+                                            }
+
+                                            htmlString += "<td><div class='symbolWrap'><button class=\"btn btn-success btn-uniform\" " +
+                                                "onclick=\"printSymbol(" + symb.symId + ",'" + symb.symName + "','" + image + "', true)\">" +
+                                                "<img src='" + image + " 'alt='" + symb.symName + "' /> <div class='symbolName'>'" + symb.symName +
+                                                "' </div></button></div></td>";
+                                            breakAt++;
+                                        }
+                                    }
+                                    //htmlString += "<td><button class=\"btn btn-success\" onclick=\"printSymbol(0, 'space', true)\">SPACE</button></td>";
+                                    //htmlString += "<td><button class=\"btn btn-danger\" onclick=\"printSymbol(0, 'backspace', true)\">DELETE</button></td>";
+                                    @Html.Raw(htmlString);
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tab-3" class="tab-content">
+                    <!--LETTERS-->
+                    <table>
+                        <tbody>
+                            <tr>
+                                @if (symbols != null)
+                                {
+                                    var breakAt = 10;
+                                    var htmlString = "";
+                                    foreach (SymbolType type in types)
+                                    {
+                                        Symbol symb;
+                                        if (type.typeIndicator == TypeCodes.LATIN)
+                                        {
+                                            symb = symbols.Find(s => s.symId == type.symId);
+
+                                            var base64 = Convert.ToBase64String(symb.symJpeg);
+                                            var image = String.Format("data:image/png;base64,{0}", base64);
+
+                                            if ((breakAt % 10) == 0)
+                                            {
+                                                htmlString += "</tr><tr>";
+                                            }
+
+                                            htmlString += "<td><div class='symbolWrap'><button class=\"btn btn-success btn-uniform\" " +
+                                                "onclick=\"printSymbol(" + symb.symId + ",'" + symb.symName + "','" + image + "', true)\">" +
+                                                "<img src='" + image + " 'alt='" + symb.symName + "' /> <div class='symbolName'>'" + symb.symName +
+                                                "' </div></button></div></td>";
+                                            breakAt++;
+                                        }
+                                    }
+                                    //htmlString += "<td><button class=\"btn btn-success\" onclick=\"printSymbol(0, 'space', true)\">SPACE</button></td>";
+                                    //htmlString += "<td><button class=\"btn btn-danger\" onclick=\"printSymbol(0, 'backspace', true)\">DELETE</button></td>";
+                                    @Html.Raw(htmlString);
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="tab-4" class="tab-content">
+                    <!--NUMBERS-->
+                    <table>
+                        <tbody>
+                            <tr>
+                                @if (symbols != null)
+                                {
+                                    var breakAt = 10;
+                                    var htmlString = "";
+                                    foreach (SymbolType type in types)
+                                    {
+                                        Symbol symb;
+                                        if (type.typeIndicator == TypeCodes.NUMERICAL)
+                                        {
+                                            symb = symbols.Find(s => s.symId == type.symId);
+
+                                            var base64 = Convert.ToBase64String(symb.symJpeg);
+                                            var image = String.Format("data:image/png;base64,{0}", base64);
+
+                                            if ((breakAt % 10) == 0)
+                                            {
+                                                htmlString += "</tr><tr>";
+                                            }
+
+                                            htmlString += "<td><div class='symbolWrap'><button class=\"btn btn-success btn-uniform\" " +
+                                                "onclick=\"printSymbol(" + symb.symId + ",'" + symb.symName + "','" + image + "', true)\">" +
+                                                "<img src='" + image + " 'alt='" + symb.symName + "' /> <div class='symbolName'>'" + symb.symName +
+                                                "' </div></button></div></td>";
+                                            breakAt++;
+                                        }
+                                    }
+                                    //htmlString += "<td><button class=\"btn btn-success\" onclick=\"printSymbol(0, 'space', true)\">SPACE</button></td>";
+                                    //htmlString += "<td><button class=\"btn btn-danger\" onclick=\"printSymbol(0, 'backspace', true)\">DELETE</button></td>";
+                                    @Html.Raw(htmlString);
+                                }
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <br />
+            </div>
+        </div>
+
+        <div class="jumbotron suggestions-scroll div3">
+            <ul id="suggestions" class=""></ul>
+        </div>
+
+        <div>@ViewBag.Message</div>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('ul.tabs li').click(function () {
+                var tab_id = $(this).attr('data-tab');
+
+                if (tab_id.indexOf("space") === -1) {
+                    $('ul.tabs li').removeClass('current');
+                    $('.tab-content').removeClass('current');
+
+                    $(this).addClass('current');
+                    $("#" + tab_id).addClass('current');
+                }
+                else {
+                    if (tab_id === "space") {
+                        printSymbol(0, " ", "space", true);
+                    }
+                    else {
+                        printSymbol(0, " ", "backspace", true);
+                    }
+                }
+
+            })
+
+        })
+    </script>
+    <script type="text/javascript">
+
+        var allComposites = [];
+        var actionUrl = '@Url.Action("Suggestions", "Write")';
+        var scoreUrl = '@Url.Action("IncreaseCompSymbolScore", "Write")';
+
+        var usedSymbs = [[]];
+        var suggestions = [];
+        var numberOfCurrentSymbol = 0;
+        var numberOfChosenSymbol = 0;
+        var numberOfUsedKeyboardSymbols = 0;
+        var usedSymbolsForSuggestions = [];
+
+        var printSymbol = function (id, name, jpeg, fromKeyboard) {
+            if (id > 0) {
+                fillSuggestions(id, jpeg);
+                usedSymbolsForSuggestions.push(id);
+            }
+
+            if (jpeg.indexOf("space") === -1) {
+                if (fromKeyboard) {
+                    var img = "<li class='temp'><div class='symbolWrap'><img src='" + jpeg + "' alt='" + name + "' /> <div class='symbolName'>'" + name + "' </div></div></li>";
+                }
+                else {
+                    /*$(".temp").each(function () {
+                        //$(this).closest('li').css('display','none');
+                    });*/
+
+                    $('#sentence').each(function () {
+                        $(this).children('li.temp').remove();
+                    });
+
+                    var updateData = {
+                        id: id
+                    };
+
+                    //update score
+                    $.ajax({
+                        url: scoreUrl,
+                        type: "POST",
+                        data: updateData,
+                        success: function (result) {
+                            //alert(result);
+                        },
+                        error: function () {
+
+                        }
+                    });
+
+                    //add symbol to ul
+                    var img = "<li><div class='symbolWrap'><img src='" + jpeg + "' alt='" + name + "' /> <div class='symbolName'>'" + name + "' </div></div></li>";
+                    usedSymbolsForSuggestions = [];
+                }
+
+                $("#sentence").append(img);
+                adjustScroll();
+            }
+            else {
+                if (jpeg === "space") //space
+                {
+                    $(".temp").each(function () {
+                        $(this).removeClass("temp");
+                    });
+
+                    suggestions = [];
+                    $("#suggestions").empty();
+                    var liSpace = "<li class='space'></li>";
+                    $("#sentence").append(liSpace);
+                    adjustScroll();
+                }
+                else //backspace
+                {
+                    if (usedSymbolsForSuggestions.length === 1) {
+                        suggestions = [];
+                        usedSymbolsForSuggestions = [];
+                        $("#suggestions").empty();
+                    }
+                    else if (usedSymbolsForSuggestions.length > 1) {
+                        var previousId = usedSymbolsForSuggestions[usedSymbolsForSuggestions.length - 2];
+
+                        usedSymbolsForSuggestions.pop();
+
+                        suggestions = [];
+
+                        $.each(usedSymbolsForSuggestions, function (i, val) {
+                            //setTimeout(alert(suggestions.length), 5000);
+                            fillSuggestions(usedSymbolsForSuggestions[i], jpeg);
+                        });
+                    }
+                    var removalUl = document.getElementById("sentence");
+                    removalUl.removeChild(removalUl.lastChild);
+                    //$("#sentence li").last().remove();
+                }
+            }
+
+            //add space or image to screen
+
+
+            //get correct symbol from db
+
+            //add symbol to screen
+
+        };
+
+        function adjustScroll() {
+            var elem = document.getElementById('div1');
+            elem.scrollTop = elem.scrollHeight;
+        }
+
+        function fillSuggestions(id, jpeg) {
+            var sendData = {
+                symbolId: id,
+                currentSuggestions: suggestions,
+                First: "true"
+            };
+
+            var secondSendData = {
+                symbolId: id,
+                currentSuggestions: suggestions,
+                First: "false"
+            };
+
+            //fill suggestions list
+            if (suggestions.length === 0) {
+                if (jpeg.indexOf("space") === -1) {
+                    $.ajax({
+                        url: actionUrl,
+                        type: "POST",
+                        traditional: true,
+                        data: JSON.stringify(sendData),
+                        dataType: "json",
+                        contentType: "application/json; charset = utf-8",
+                        success: function (result) {
+                            if (result !== null) {
+                                suggestions = result;
+                                addToScreen();
+                            }
+                            else {
+                                alert("EMPTY");
+                            }
+                        },
+                        error: function (error) {
+                            //todo
+                            alert(error.status + "\n" + error.responseText);
+                        }
+                    });
+                }
+                else //is space or backspace
+                {
+                    $.ajax({
+                        url: actionUrl,
+                        type: "POST",
+                        traditional: true,
+                        data: JSON.stringify(sendData),
+                        dataType: "json",
+                        async: false, //different from non-space/non-backspace
+                        contentType: "application/json; charset = utf-8",
+                        success: function (result) {
+                            if (result !== null) {
+                                suggestions = result;
+                                addToScreen();
+                            }
+                            else {
+                                alert("EMPTY");
+                            }
+                        },
+                        error: function (error) {
+                            //todo
+                            alert(error.status + "\n" + error.responseText);
+                        }
+                    });
+                }
+            }
+            else {
+                $.ajax({
+                    url: actionUrl,
+                    type: "POST",
+                    traditional: true,
+                    data: JSON.stringify(secondSendData),
+                    dataType: "json",
+                    contentType: "application/json; charset = utf-8",
+                    success: function (result) {
+                        if (result !== null) {
+                            suggestions = result;
+                            addToScreen();
+                        }
+                        else {
+                            alert("EMPtY");
+                        }
+                    },
+                    error: function (error) {
+                        //todo
+                        alert(error.status + "\n" + error.responseText);
+                    }
+                });
+            }
+        }
+
+        function addToScreen() {
+            $('#suggestions').empty();
+
+            $.each(suggestions, function (i, val) {
+                var img = "data:image/jpeg;base64," + encodeImage(val.compJpeg);
+                var name = val.compName;
+                var newLi = document.createElement("li");
+                newLi.innerHTML = "<div class='symbolWrap'><button class='btn btn-info'><img src='" + img + " 'alt='" + name + "' /> <div class='symbolName'>'" + name + "' </div></button></div>";
+                newLi.onclick = function () {
+                    printSymbol(val.compId, "'" + val.compName + "'", img, false);
+                };
+                //newButton.className = "btn btn-info";
+                $("#suggestions").append(newLi);
+            });
+        }
+
+        var convArrToObj = function (array) {
+            var thisEleObj = new Object();
+            if (typeof array == "object") {
+                for (var i in array) {
+                    var thisEle = convArrToObj(array[i]);
+                    thisEleObj[i] = thisEle;
+                }
+            }
+            else {
+                thisEleObj = array;
+            }
+            return thisEleObj;
+        };
+
+        function encodeImage(data) {
+            var str = String.fromCharCode.apply(null, data);
+            return btoa(str).replace(/.{76}(?=.)/g, '$&\n');
+        }
+    </script>
